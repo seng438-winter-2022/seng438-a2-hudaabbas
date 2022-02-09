@@ -12,6 +12,7 @@
 # 1 Introduction
 
 This lab enabled the team to concentrate on fully grasping the principles of automated unit testing, especially unit testing based on a set requirements criterion for each unit of code. The lab provided an opportunity for all group members to become acquainted with the widely used unit testing tool for Java, JUnit framework, which is part of the XUnit framework family. Upon completion of the lab, all team members were equipped with the knowledge to develop automated test code in JUnit along with other similar testing environments used in the industry. The lab also allowed us to utilize and work with mock objects in test-code development and further gave us an opportunity to employ the notion of mocking in various unit tests.
+
 Along with the fundamental automation testing knowledge the lab provided, it also gave us an essence into the strength and influence teamwork offers. Through strong collaboration and cooperation as well as by employing effective teamwork capabilities, we all ensured to maximize our expertise by taking part in active discussions throughout the lab and providing each other guidance and feedback frequently. Overall, this lab was a success, and the following report captures all test cases performed, the reasoning as well as a detailed conclusion regarding the findings.
 
 
@@ -24,40 +25,40 @@ Our general testing plan to design and develop our test cases for all 10 methods
 
 Below are the input partitions designed for the methods in the DataUtilities class:
 
-calculateColumnTotal(Values2D data, int column):double
+__calculateColumnTotal(Values2D data, int column):double__
  * Invalid data
     * Values2D data is null
     * Column index less than 0
     * Column index larger than data size
  * Equivalent class
     * For int column variable (-inf, 0) (0, data column count - 1) (data column count -1, inf)
-    * Boundary
-int column = 0
-int column = column size - 1
-calculateColumnTotal(Values2D data, int column, int[] validRows):double
-Invalid data
-Values2D data is null
-Column index less than 0
-Column index larger than data size
-Negative or larger than row size number in rows array
-Equivalent class
-For int column variable (-inf, 0) (0, data column count - 1) (data column count - 1, inf)
-For int[] validRows each integer in the array has 3 distinct classes (-inf, 0) (0, data row count - 1) (data row count - 1, inf)
-Boundary
-int column = 0
-int column = column size - 1
-Int[] validRows = {0,..}
-Int[] validRows = {row size - 1,..}
-calculateRowTotal(Values2D, int row): double
-Invalid data
-Values2D data is null
-Row index less than 0
-Row index larger than data size
-Equivalent class
-For int row variable (-inf, 0) (0, data row count - 1) (data row count - 1, inf)
-Boundary
-int row = 0
-int row = column size - 1
+ * Boundary
+    * int column = 0
+    * int column = column size - 1
+__calculateColumnTotal(Values2D data, int column, int[] validRows):double__
+* Invalid data
+   * Values2D data is null
+   * Column index less than 0
+   * Column index larger than data size
+   * Negative or larger than row size number in rows array
+* Equivalent class
+   * For int column variable (-inf, 0) (0, data column count - 1) (data column count - 1, inf)
+   * For int[] validRows each integer in the array has 3 distinct classes (-inf, 0) (0, data row count - 1) (data row count - 1, inf)
+* Boundary
+   * int column = 0
+   * int column = column size - 1
+   * int[] validRows = {0,..}
+   * int[] validRows = {row size - 1,..}
+__calculateRowTotal(Values2D, int row): double__
+* Invalid data
+   * Values2D data is null
+   * Row index less than 0
+   * Row index larger than data size
+* Equivalent class
+   * For int row variable (-inf, 0) (0, data row count - 1) (data row count - 1, inf)
+* Boundary
+   * int row = 0
+   * int row = column size - 1
 calculateRowTotal(Values2D data, int row, int[] validCols): double
 Invalid data
 Values2D data is null
