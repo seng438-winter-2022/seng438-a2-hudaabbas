@@ -426,8 +426,9 @@ Checks behavior of function when a value at the boundary of the upper bound is p
 
 *3.3 Benefits and Drawbacks about using Mocking*
 
-Benefits: mocking allows us to instantiate a fake object and watch the interactions between the objects to determine if a unit test has passed or failed. It is a more reliable way of testing as it allows us to isolate the tests from external dependencies. This reduces the scope of the unit tests which creates more focused tests.
-Disadvantages: Since the use of mocking involves knowing how the method under test is implemented, it can lead to more tests failing due to misinterpretation of the function implementation.
+_Benefits:_ mocking allows us to instantiate a fake object and watch the interactions between the objects to determine if a unit test has passed or failed. It is a more reliable way of testing as it allows us to isolate the tests from external dependencies. This reduces the scope of the unit tests which creates more focused tests.
+
+_Disadvantages:_ Since the use of mocking involves knowing how the method under test is implemented, it can lead to more tests failing due to misinterpretation of the function implementation.
 
 
 # 4 How the team work/effort was divided and managed
