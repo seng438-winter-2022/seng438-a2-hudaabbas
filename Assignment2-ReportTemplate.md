@@ -77,30 +77,31 @@ int row = 0
 int row = row size - 1
 Int[] validColumn = {0,..}
 Int[] validColumn = {column size - 1,..}
-createNumberArray(double[]): Number[]
+
+__createNumberArray(double[]): Number[]__
 Array of double -> array of Number objects (returns array of Number)
-Invalid data (null, missing, empty…)
-double[] data is null
-Valid input data (part of equivalent class input data)
-For the double[] data, can be anything from -inf to +inf
-Boundary analysis (part of equivalent class input data)
-None
-createNumberArray2D(double[][]): Number[][]
+* Invalid data (null, missing, empty…)
+   * double[] data is null
+* Valid input data (part of equivalent class input data)
+   * For the double[] data, can be anything from -inf to +inf
+* Boundary analysis (part of equivalent class input data)
+   * None
+__createNumberArray2D(double[][]): Number[][]__
 Array of array of type doubles -> array of arrays of Number objects (returns 2-D array of Number)
-Invalid data (null, missing, empty…)
-Double[][] data is null
-Valid input data (part of equivalent class input data)
-For the double[][] data, can be anything from -inf to inf
-Boundary analysis (part of equivalent class input data)
-None
-getCumulativePercentage(KeyedValues): KeyedValues
-Invalid data (null, missing, empty…)
-KeyedValues data is null
-KeyedValues data is non-unique
-Valid input data (part of equivalent class input data)
-Values in the KeyedValues data are between 0.0 and 1.0
-Boundary analysis (part of equivalent class input data)
-KeyedValues containing values such as 0.0 and 1.0
+* Invalid data (null, missing, empty…)
+  * Double[][] data is null
+* Valid input data (part of equivalent class input data)
+  * For the double[][] data, can be anything from -inf to inf
+* Boundary analysis (part of equivalent class input data)
+  * None
+__getCumulativePercentage(KeyedValues): KeyedValues__
+* Invalid data (null, missing, empty…)
+  * KeyedValues data is null
+  * KeyedValues data is non-unique
+* Valid input data (part of equivalent class input data)
+  * Values in the KeyedValues data are between 0.0 and 1.0
+* Boundary analysis (part of equivalent class input data)
+  * KeyedValues containing values such as 0.0 and 1.0
 
 __Below are the input partitions designed for the methods in the _Range_ class:__
 
