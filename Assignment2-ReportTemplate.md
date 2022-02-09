@@ -160,90 +160,86 @@ Both bounds out of range object
 
 # 3 Test cases developed
 
-*3.1 Test Cases for org.jfree.data.DataUtilities*
 Values2D data is the following 3x3 array for all the below methods unless otherwise specified
-data =  
-1.5
-2
-3.5
-2
-4
-5
-3
-6
-1.5
+|   1.5   |  2   |   3.5  |
+| ---- | --- | --- |
+| 2    |  4    |  5
+| 3   |  6     |  1.5
 
-calculateColumnTotal(Values2D data, int column):double
-test_calculatedColumnTotal_invalidData()
-Input: Values2D data = null
-Output: IllegalArgumentException.class
-Covers the invalid class/partition for first input variable
-test_calculatedColumnTotal_negativeColumn()
-Input: int column = -1
-Output: 0
-Invalid class for second input variable, nothing to sum column is null
-test_calculatedColumnTotal_OutOfBoundsColumn()
-Input: int column = 3
-Output: 0
-Invalid class for second input variable where column index larger than data size, nothing to sum column is null
-test_calculatedColumnTotal_ColumnZero()
-Input: int column = 0
-Output: 1.5 + 2 + 3 = 6.5
-Valid input for second variable but at boundary of valid and invalid
-test_calculatedColumnTotal_ValidColumn()
-Input: int column = 1
-Output: 2 + 4 + 6 = 12
-Valid input for second variable, one sample within equivalence class not at boundary
-test_calculatedColumnTotal_ColumnAtSize()
-Input: int column = 2
-Output: 3.5 + 5 + 1.5 = 10
-Valid input for second variable but at boundary of valid and invalid, index right at the maximum size of the data
-calculateColumnTotal(Values2D data, int column, int[] validRows):double
-test_calculatedColumnTotal_negativeIntForRows()
-Input: int[] validRows = [-1] int column = 1
-Output: 0
-Invalid class for third input variable, negative row number
-test_calculatedColumnTotal_OutOfBoundsRow()
-Input: int[] validRows = [3] int column = 1
-Output: 0
-Invalid class for third input variable where row index in valid rows is larger than data size
-test_calculatedColumnTotal_RowZero()
-Input: int[] validRows = [0] int column = 1
-Output: 2
-Valid input for third variable but at boundary of valid and invalid
-test_calculatedColumnTotal_allValidRows()
-Input: int[] validRows = [1, 2] int column = 1
-Output: 4 + 6 = 10
-Valid input for third variable, one sample within equivalence class not at boundary
-test_calculatedColumnTotal_RowAtSize()
-Input: int[] validRows = [2] int column = 1
-Output: 6
-Valid input for third variable but at boundary of valid and invalid, index right at the maximum size of the data
-calculateRowTotal(Values2D data, int row): double
-test_calculatedRowTotal_invalidData()
-Input: Values2D data = null
-Output: IllegalArgumentException.class
-Covers the invalid class/partition for first input variable
-test_calculatedRowTotal_negativeRow()
-Input: int row = -1
-Output: 0
-Invalid class for second input variable
-test_calculatedRowTotal_outOfBoundsRow()
-Input: int row = 3
-Output: 0
-Invalid class for second input variable where row index larger than data size
-test_calculatedRowTotal_rowZero()
-Input: int row = 0
-Output: 1.5 + 2 + 3.5 = 7
-Valid input for second variable but at boundary of valid and invalid
-test_calculatedRowTotal_validRow()
-Input: int row = 1
-Output: 2 + 4 + 5 = 11
-Valid input for second variable, one sample within equivalence class not at boundary
-test_calculatedRowTotal_rowAtSize()
-Input: int row = 2
-Output: 3 + 6 + 1.5 = 10.5
-Valid input for second variable but at boundary of valid and invalid, index right at the maximum size of the data
+__calculateColumnTotal(Values2D data, int column):double__
+* test_calculatedColumnTotal_invalidData()
+   * Input: Values2D data = null
+   * Output: IllegalArgumentException.class
+   * Covers the invalid class/partition for first input variable
+* test_calculatedColumnTotal_negativeColumn()
+   * Input: int column = -1
+   * Output: 0
+   * Invalid class for second input variable, nothing to sum column is null
+* test_calculatedColumnTotal_OutOfBoundsColumn()
+   * Input: int column = 3
+   * Output: 0
+   * Invalid class for second input variable where column index larger than data size, nothing to sum column is null
+* test_calculatedColumnTotal_ColumnZero()
+   * Input: int column = 0
+   * Output: 1.5 + 2 + 3 = 6.5
+   * Valid input for second variable but at boundary of valid and invalid
+* test_calculatedColumnTotal_ValidColumn()
+   * Input: int column = 1
+   * Output: 2 + 4 + 6 = 12
+   * Valid input for second variable, one sample within equivalence class not at boundary
+* test_calculatedColumnTotal_ColumnAtSize()
+   * Input: int column = 2
+   * Output: 3.5 + 5 + 1.5 = 10
+   * Valid input for second variable but at boundary of valid and invalid, index right at the maximum size of the data
+
+__calculateColumnTotal(Values2D data, int column, int[] validRows):double__
+* test_calculatedColumnTotal_negativeIntForRows()
+   * Input: int[] validRows = [-1] int column = 1
+   * Output: 0
+   * Invalid class for third input variable, negative row number
+* test_calculatedColumnTotal_OutOfBoundsRow()
+   * Input: int[] validRows = [3] int column = 1
+   * Output: 0
+   * Invalid class for third input variable where row index in valid rows is larger than data size
+* test_calculatedColumnTotal_RowZero()
+   * Input: int[] validRows = [0] int column = 1
+   * Output: 2
+   * Valid input for third variable but at boundary of valid and invalid
+* test_calculatedColumnTotal_allValidRows()
+   * Input: int[] validRows = [1, 2] int column = 1
+   * Output: 4 + 6 = 10
+   * Valid input for third variable, one sample within equivalence class not at boundary
+* test_calculatedColumnTotal_RowAtSize()
+   * Input: int[] validRows = [2] int column = 1
+   * Output: 6
+   * Valid input for third variable but at boundary of valid and invalid, index right at the maximum size of the data
+
+__calculateRowTotal(Values2D data, int row): double__
+* test_calculatedRowTotal_invalidData()
+   * Input: Values2D data = null
+   * Output: IllegalArgumentException.class
+   * Covers the invalid class/partition for first input variable
+* test_calculatedRowTotal_negativeRow()
+   * Input: int row = -1
+   * Output: 0
+   * Invalid class for second input variable
+* test_calculatedRowTotal_outOfBoundsRow()
+   * Input: int row = 3
+   * Output: 0
+   * Invalid class for second input variable where row index larger than data size
+* test_calculatedRowTotal_rowZero()
+   * Input: int row = 0
+   * Output: 1.5 + 2 + 3.5 = 7
+   * Valid input for second variable but at boundary of valid and invalid
+* test_calculatedRowTotal_validRow()
+   * Input: int row = 1
+   * Output: 2 + 4 + 5 = 11
+   * Valid input for second variable, one sample within equivalence class not at boundary
+* test_calculatedRowTotal_rowAtSize()
+   * Input: int row = 2
+   * Output: 3 + 6 + 1.5 = 10.5
+   * Valid input for second variable but at boundary of valid and invalid, index right at the maximum size of the data
+   
 calculateRowTotal(Values2D data, int row, int[] validColumn): double
 test_calculatedRowTotal_negativeIntForValidColumn()
 Input: int[] validColumn = [-1] int row = 1
@@ -428,8 +424,10 @@ Output: true
 Checks behavior of function when a value at the boundary of the upper bound is provided, boundary value test
 
 *3.3 Benefits and Drawbacks about using Mocking*
-Benefits: mocking allows us to instantiate a fake object and watch the interactions between the objects to determine if a unit test has passed or failed. It is a more reliable way of testing as it allows us to isolate the tests from external dependencies. This reduces the scope of the unit tests which creates more focused tests.
-Disadvantages: Since the use of mocking involves knowing how the method under test is implemented, it can lead to more tests failing due to misinterpretation of the function implementation.
+
+_Benefits:_ mocking allows us to instantiate a fake object and watch the interactions between the objects to determine if a unit test has passed or failed. It is a more reliable way of testing as it allows us to isolate the tests from external dependencies. This reduces the scope of the unit tests which creates more focused tests.
+
+_Disadvantages:_ Since the use of mocking involves knowing how the method under test is implemented, it can lead to more tests failing due to misinterpretation of the function implementation.
 
 
 # 4 How the team work/effort was divided and managed
