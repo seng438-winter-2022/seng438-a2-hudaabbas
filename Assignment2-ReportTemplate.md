@@ -64,6 +64,7 @@ __calculateRowTotal(Values2D, int row): double__
    * int row = column size - 1
 
 __calculateRowTotal(Values2D data, int row, int[] validCols): double__
+
 * Invalid data
    * Values2D data is null
    * Row index less than 0
@@ -77,61 +78,67 @@ __calculateRowTotal(Values2D data, int row, int[] validCols): double__
    * int row = row size - 1
    * I=int[] validColumn = {0,..}
    * int[] validColumn = {column size - 1,..}
+
 __createNumberArray(double[]): Number[]__
 Array of double -> array of Number objects (returns array of Number)
-Invalid data (null, missing, empty…)
-double[] data is null
-Valid input data (part of equivalent class input data)
-For the double[] data, can be anything from -inf to +inf
-Boundary analysis (part of equivalent class input data)
-None
-createNumberArray2D(double[][]): Number[][]
+* Invalid data (null, missing, empty…)
+   * double[] data is null
+* Valid input data (part of equivalent class input data)
+   * For the double[] data, can be anything from -inf to +inf
+* Boundary analysis (part of equivalent class input data)
+   * None
+
+__createNumberArray2D(double[][]): Number[][]__
 Array of array of type doubles -> array of arrays of Number objects (returns 2-D array of Number)
-Invalid data (null, missing, empty…)
-Double[][] data is null
-Valid input data (part of equivalent class input data)
-For the double[][] data, can be anything from -inf to inf
-Boundary analysis (part of equivalent class input data)
-None
-getCumulativePercentage(KeyedValues): KeyedValues
-Invalid data (null, missing, empty…)
-KeyedValues data is null
-KeyedValues data is non-unique
-Valid input data (part of equivalent class input data)
-Values in the KeyedValues data are between 0.0 and 1.0
-Boundary analysis (part of equivalent class input data)
-KeyedValues containing values such as 0.0 and 1.0
 
-Below are the input partitions designed for the methods in the _Range_ class:
+* Invalid data (null, missing, empty…)
+  * Double[][] data is null
+* Valid input data (part of equivalent class input data)
+  * For the double[][] data, can be anything from -inf to inf
+* Boundary analysis (part of equivalent class input data)
+  * None
 
-scale(Range, double): Range
-One dimensional equivalent classes
-Invalid Data
-Base is null
-Factor is a negative number
-Valid Data
-Range is not null
-Factor is a positive number
-Boundary
-Factor is 0
-constrain(double): double
-Invalid Data
-All values are valid for value
-Can test 3 different partitions
-One dimensional equivalent classes
-Inputs: lower is lower bound, upper is upper bound
-(-inf, lower) (lower, upper) (upper, +inf)
-Boundary
-Select the boundary values upper and lower bounds: lower and upper
-contains(double): double
-Invalid Data
-All values are valid for value
-Can test 3 different partitions
-One dimensional equivalent classes
-Inputs: lower is lower bound, upper is upper bound
-(-inf, lower) (lower, upper) (upper, +inf)
-Boundary
-Select the boundary values upper and lower bounds: lower and upper
+__getCumulativePercentage(KeyedValues): KeyedValues__
+* Invalid data (null, missing, empty…)
+  * KeyedValues data is null
+  * KeyedValues data is non-unique
+* Valid input data (part of equivalent class input data)
+  * Values in the KeyedValues data are between 0.0 and 1.0
+* Boundary analysis (part of equivalent class input data)
+  * KeyedValues containing values such as 0.0 and 1.0
+
+__Below are the input partitions designed for the methods in the _Range_ class:__
+
+__scale(Range, double): Range__
+* One dimensional equivalent classes
+* Invalid Data
+   * Base is null
+   * Factor is a negative number
+* Valid Data
+   * Range is not null
+   * Factor is a positive number
+* Boundary
+   * Factor is 0
+
+__constrain(double): double__
+* Invalid Data
+   * All values are valid for value
+* Can test 3 different partitions
+   * One dimensional equivalent classes
+   * Inputs: lower is lower bound, upper is upper bound
+   * (-inf, lower) (lower, upper) (upper, +inf)
+* Boundary
+   * Select the boundary values upper and lower bounds: lower and upper
+
+__contains(double): double__
+* Invalid Data
+   * All values are valid for value
+* Can test 3 different partitions
+   * One dimensional equivalent classes
+   * Inputs: lower is lower bound, upper is upper bound
+   * (-inf, lower) (lower, upper) (upper, +inf)
+* Boundary
+   * Select the boundary values upper and lower bounds: lower and upper
 * __intersects(double b0, double b1): boolean__
    * b0 - the lower bound (should be <= b1).
    * b1 - the upper bound (should be >= b0).
@@ -160,89 +167,87 @@ Select the boundary values upper and lower bounds: lower and upper
 
 # 3 Test cases developed
 
-*3.1 Test Cases for org.jfree.data.DataUtilities*
 Values2D data is the following 3x3 array for all the below methods unless otherwise specified
-data =  
-1.5
-2
-3.5
-2
-4
-5
-3
-6
-1.5
 
-calculateColumnTotal(Values2D data, int column):double
-test_calculatedColumnTotal_invalidData()
-Input: Values2D data = null
-Output: IllegalArgumentException.class
-Covers the invalid class/partition for first input variable
-test_calculatedColumnTotal_negativeColumn()
-Input: int column = -1
-Output: 0
-Invalid class for second input variable, nothing to sum column is null
-test_calculatedColumnTotal_OutOfBoundsColumn()
-Input: int column = 3
-Output: 0
-Invalid class for second input variable where column index larger than data size, nothing to sum column is null
-test_calculatedColumnTotal_ColumnZero()
-Input: int column = 0
-Output: 1.5 + 2 + 3 = 6.5
-Valid input for second variable but at boundary of valid and invalid
-test_calculatedColumnTotal_ValidColumn()
-Input: int column = 1
-Output: 2 + 4 + 6 = 12
-Valid input for second variable, one sample within equivalence class not at boundary
-test_calculatedColumnTotal_ColumnAtSize()
-Input: int column = 2
-Output: 3.5 + 5 + 1.5 = 10
-Valid input for second variable but at boundary of valid and invalid, index right at the maximum size of the data
-calculateColumnTotal(Values2D data, int column, int[] validRows):double
-test_calculatedColumnTotal_negativeIntForRows()
-Input: int[] validRows = [-1] int column = 1
-Output: 0
-Invalid class for third input variable, negative row number
-test_calculatedColumnTotal_OutOfBoundsRow()
-Input: int[] validRows = [3] int column = 1
-Output: 0
-Invalid class for third input variable where row index in valid rows is larger than data size
-test_calculatedColumnTotal_RowZero()
-Input: int[] validRows = [0] int column = 1
-Output: 2
-Valid input for third variable but at boundary of valid and invalid
-test_calculatedColumnTotal_allValidRows()
-Input: int[] validRows = [1, 2] int column = 1
-Output: 4 + 6 = 10
-Valid input for third variable, one sample within equivalence class not at boundary
-test_calculatedColumnTotal_RowAtSize()
-Input: int[] validRows = [2] int column = 1
-Output: 6
-Valid input for third variable but at boundary of valid and invalid, index right at the maximum size of the data
-calculateRowTotal(Values2D data, int row): double
-test_calculatedRowTotal_invalidData()
-Input: Values2D data = null
-Output: IllegalArgumentException.class
-Covers the invalid class/partition for first input variable
-test_calculatedRowTotal_negativeRow()
-Input: int row = -1
-Output: 0
-Invalid class for second input variable
-test_calculatedRowTotal_outOfBoundsRow()
-Input: int row = 3
-Output: 0
-Invalid class for second input variable where row index larger than data size
-test_calculatedRowTotal_rowZero()
-Input: int row = 0
-Output: 1.5 + 2 + 3.5 = 7
-Valid input for second variable but at boundary of valid and invalid
-test_calculatedRowTotal_validRow()
-Input: int row = 1
-Output: 2 + 4 + 5 = 11
-Valid input for second variable, one sample within equivalence class not at boundary
-test_calculatedRowTotal_rowAtSize()
-Input: int row = 2
-Output: 3 + 6 + 1.5 = 10.5
+|   1.5   |  2   |   3.5  |
+| ---- | --- | --- |
+| 2    |  4    |  5
+| 3   |  6     |  1.5
+
+__calculateColumnTotal(Values2D data, int column):double__
+* test_calculatedColumnTotal_invalidData()
+   * Input: Values2D data = null
+   * Output: IllegalArgumentException.class
+   * Covers the invalid class/partition for first input variable
+* test_calculatedColumnTotal_negativeColumn()
+   * Input: int column = -1
+   * Output: 0
+   * Invalid class for second input variable, nothing to sum column is null
+* test_calculatedColumnTotal_OutOfBoundsColumn()
+   * Input: int column = 3
+   * Output: 0
+   * Invalid class for second input variable where column index larger than data size, nothing to sum column is null
+* test_calculatedColumnTotal_ColumnZero()
+   * Input: int column = 0
+   * Output: 1.5 + 2 + 3 = 6.5
+   * Valid input for second variable but at boundary of valid and invalid
+* test_calculatedColumnTotal_ValidColumn()
+   * Input: int column = 1
+   * Output: 2 + 4 + 6 = 12
+   * Valid input for second variable, one sample within equivalence class not at boundary
+* test_calculatedColumnTotal_ColumnAtSize()
+   * Input: int column = 2
+   * Output: 3.5 + 5 + 1.5 = 10
+   * Valid input for second variable but at boundary of valid and invalid, index right at the maximum size of the data
+
+__calculateColumnTotal(Values2D data, int column, int[] validRows):double__
+* test_calculatedColumnTotal_negativeIntForRows()
+   * Input: int[] validRows = [-1] int column = 1
+   * Output: 0
+   * Invalid class for third input variable, negative row number
+* test_calculatedColumnTotal_OutOfBoundsRow()
+   * Input: int[] validRows = [3] int column = 1
+   * Output: 0
+   * Invalid class for third input variable where row index in valid rows is larger than data size
+* test_calculatedColumnTotal_RowZero()
+   * Input: int[] validRows = [0] int column = 1
+   * Output: 2
+   * Valid input for third variable but at boundary of valid and invalid
+* test_calculatedColumnTotal_allValidRows()
+   * Input: int[] validRows = [1, 2] int column = 1
+   * Output: 4 + 6 = 10
+   * Valid input for third variable, one sample within equivalence class not at boundary
+* test_calculatedColumnTotal_RowAtSize()
+   * Input: int[] validRows = [2] int column = 1
+   * Output: 6
+   * Valid input for third variable but at boundary of valid and invalid, index right at the maximum size of the data
+
+__calculateRowTotal(Values2D data, int row): double__
+* test_calculatedRowTotal_invalidData()
+   * Input: Values2D data = null
+   * Output: IllegalArgumentException.class
+   * Covers the invalid class/partition for first input variable
+* test_calculatedRowTotal_negativeRow()
+   * Input: int row = -1
+   * Output: 0
+   * Invalid class for second input variable
+* test_calculatedRowTotal_outOfBoundsRow()
+   * Input: int row = 3
+   * Output: 0
+   * Invalid class for second input variable where row index larger than data size
+* test_calculatedRowTotal_rowZero()
+   * Input: int row = 0
+   * Output: 1.5 + 2 + 3.5 = 7
+   * Valid input for second variable but at boundary of valid and invalid
+* test_calculatedRowTotal_validRow()
+   * Input: int row = 1
+   * Output: 2 + 4 + 5 = 11
+   * Valid input for second variable, one sample within equivalence class not at boundary
+* test_calculatedRowTotal_rowAtSize()
+   * Input: int row = 2
+   * Output: 3 + 6 + 1.5 = 10.5
+   * Valid input for second variable but at boundary of valid and invalid, index right at the maximum size of the data
+   
 Valid input for second variable but at boundary of valid and invalid, index right at the maximum size of the data
 * calculateRowTotal(Values2D data, int row, int[] validColumn): double
    * test_calculatedRowTotal_negativeIntForValidColumn()
@@ -265,35 +270,36 @@ Valid input for second variable but at boundary of valid and invalid, index righ
       * Input: int[] validColumn = [2] int row = 1
       * Output: 2.0
       * Valid input for third variable but at boundary of valid and invalid, index right at the maximum size of the data
-createNumberArray(double[]): Number[]
-test_createNumberArray_invalidData()
-Input: null
-Output: an exception should be thrown
-Checks a null entry into the double[] data parameter
-test_createNumberArray_validData()
-Input:
-double[] = {4.14, 9.14, 10.0}
-Output:
-Number [] = {4.14, 9.14, 10.0}
-Checks a valid entry of double[] data parameter
-createNumberArray2D(double[][]): Number[][]
-test_createNumberArray2D_invalidData()
-Input: null
-Output: an exception should be thrown
-Checks an invalid entry of double[][] data parameter
-test_createNumberArray2D_validData()
-Input: {{4.14,9.14,10.0}, {4.15, 9.15, 10.01}}
-Output:
-Checks a valid entry of double[][] data parameter
-getCumulativePercentage(KeyedValues): KeyedValues
-test_getCumulativePercentage_invalidData()
-Input: null
-Output: an exception should be thrown
-Checks an invalid entry of KeyedValues data parameter
-test_getCumulativePercentage_validData()
-Input:
-Output:
-Checks a valid entry of KeyedValues data parameter
+
+__createNumberArray(double[]): Number[]__
+* test_createNumberArray_invalidData()
+    * Input: null
+    * Output: an exception should be thrown
+    * Checks a null entry into the double[] data parameter
+* test_createNumberArray_validData()
+    * Input: double[] = {4.14, 9.14, 10.0}
+    * Output: Number [] = {4.14, 9.14, 10.0}
+    * Checks a valid entry of double[] data parameter
+
+__createNumberArray2D(double[][]): Number[][]__
+* test_createNumberArray2D_invalidData()
+    * Input: null
+    * Output: an exception should be thrown
+    * Checks an invalid entry of double[][] data parameter
+* test_createNumberArray2D_validData()__
+    * Input: double[][] data = {{4.14,9.14,10.0}, {4.15, 9.15, 10.01}}
+    * Output: Number[][] data = {{4.14,9.14,10.0}, {4.15, 9.15, 10.01}}
+    * Checks a valid entry of double[][] data parameter
+
+__getCumulativePercentage(KeyedValues): KeyedValues__
+* test_getCumulativePercentage_invalidData()
+    * Input: null
+    * Output: an exception should be thrown
+    * Checks an invalid entry of KeyedValues data parameter
+* test_getCumulativePercentage_validData()
+    * Input: KeyedValues object, index=0;value=1, index=1;value=1
+    * Output: KeyedValues object, index=0;value=0.5, index=1;value=1.0
+    * Checks a valid entry of KeyedValues data parameter
 
 *3.2 Test Cases for org.jfree.data.Range*
 
@@ -360,75 +366,84 @@ Checks a valid entry of KeyedValues data parameter
       * Output: true
       * Checks: the behavior of the function at the edges of the Range variable
 
-The methods below used the following valid Range:
+__The methods below used the following valid Range:__
+
 Lower bound: 4
+
 Upper bound: 10
-scale(Range, double): Range
-test_scale_invalidData_base()
-Input: Null base Range
-Output: Throws exception
-Checks if an exception is thrown when an invalid Range object is provided, EC invalid input
-test_scale_invalidData_factor()
-Input: factor = -2
-Output: Throws exception
-Checks if an exception is thrown when an invalid Range factor is provided, EC invalid input
-test_scale_invalidData_factorBoundary()
-Input: factor = 0
-Output
-Range: lower = 0, upper = 0
-Checks behavior of function when the boundary value of factor is provided, test’s boundary value
-test_scale_validData()
-Input:
-Valid base range: lower = 4, upper = 10
-factor = 2
-Output: lower = 8, upper = 20
-Checks behavior of function if both input arguments are valid, EC valid inputs
-constrain(double): double
-test_constrain_valueBelowLower()
-Input: value = -2
-Output: 4
-Checks behavior of function when a value below the lower bound is provided, EC valid input partition
-test_constrain_valueBetweenRange()
-Input: value = 9
-Output: 9
-Checks behavior of function when a value between the range is provided, EC valid input partition
-test_constrain_valueAboveUpper()
-Input: value = 20
-Output: 10
-Checks behavior of function when a value above the upper bound is provided, EC valid input partition
-test_constrain_valueAtLower()
-Input: value = 4
-Output: 4
-Checks behavior of function when a value at the boundary of the lower bound is provided, boundary value test
-test_constrain_valueAtUpper()
-Input: value = 10
-Output: 10
-Checks behavior of function when a value at the boundary of the upper bound is provided, boundary value test
-contains(double): double
-test_contains_valueBelowLower()
-Input: value = 1
-Output: false
-Checks behavior of function when a value below the lower bound is provided, EC valid input partition
-test_contains_valueBetweenRange()
-Input: value = 5
-Output: true
-Checks behavior of function when a value between the range is provided, EC valid input partition
-test_contains_valueAboveUpper()
-Input: value = 15
-Output: false
-Checks behavior of function when a value above the upper bound is provided, EC valid input partition
-test_contains_valueAtLower()
-Input: value = 4
-Output: true
-Checks behavior of function when a value at the boundary of the lower bound is provided, boundary value test
-test_contains_valueAtUpper()
-Input: value = 10
-Output: true
-Checks behavior of function when a value at the boundary of the upper bound is provided, boundary value test
+
+__scale(Range, double): Range__
+* test_scale_invalidData_base()
+   * Input: Null base Range
+   * Output: Throws exception
+   * Checks if an exception is thrown when an invalid Range object is provided, EC invalid input
+
+* test_scale_invalidData_factor()
+   * Input: factor = -2
+   * Output: Throws exception
+   * Checks if an exception is thrown when an invalid Range factor is provided, EC invalid input
+
+* test_scale_invalidData_factorBoundary()
+   * Input: factor = 0
+   * Output
+      * Range: lower = 0, upper = 0
+   * Checks behavior of function when the boundary value of factor is provided, test’s boundary value
+
+* test_scale_validData()
+   * Input:
+      * Valid base range: lower = 4, upper = 10
+      * factor = 2
+   * Output: lower = 8, upper = 20
+   * Checks behavior of function if both input arguments are valid, EC valid inputs
+
+__constrain(double): double__
+* test_constrain_valueBelowLower()
+   * Input: value = -2
+   * Output: 4
+   * Checks behavior of function when a value below the lower bound is provided, EC valid input partition
+* test_constrain_valueBetweenRange()
+   * Input: value = 9
+   * Output: 9
+   * Checks behavior of function when a value between the range is provided, EC valid input partition
+* test_constrain_valueAboveUpper()
+   * Input: value = 20
+   * Output: 10
+   * Checks behavior of function when a value above the upper bound is provided, EC valid input partition
+* test_constrain_valueAtLower()
+   * Input: value = 4
+   * Output: 4
+   * Checks behavior of function when a value at the boundary of the lower bound is provided, boundary value test
+* test_constrain_valueAtUpper()
+   * Input: value = 10
+   * Output: 10
+   * Checks behavior of function when a value at the boundary of the upper bound is provided, boundary value test
+__contains(double): double__
+* test_contains_valueBelowLower()
+   * Input: value = 1
+   * Output: false
+   * Checks behavior of function when a value below the lower bound is provided, EC valid input partition
+* test_contains_valueBetweenRange()
+   * Input: value = 5
+   * Output: true
+   * Checks behavior of function when a value between the range is provided, EC valid input partition
+* test_contains_valueAboveUpper()
+   * Input: value = 15
+   * Output: false
+   * Checks behavior of function when a value above the upper bound is provided, EC valid input partition
+* test_contains_valueAtLower()
+   * Input: value = 4
+   * Output: true
+   * Checks behavior of function when a value at the boundary of the lower bound is provided, boundary value test
+* test_contains_valueAtUpper()
+   * Input: value = 10
+   * Output: true
+   * Checks behavior of function when a value at the boundary of the upper bound is provided, boundary value test
 
 *3.3 Benefits and Drawbacks about using Mocking*
-Benefits: mocking allows us to instantiate a fake object and watch the interactions between the objects to determine if a unit test has passed or failed. It is a more reliable way of testing as it allows us to isolate the tests from external dependencies. This reduces the scope of the unit tests which creates more focused tests.
-Disadvantages: Since the use of mocking involves knowing how the method under test is implemented, it can lead to more tests failing due to misinterpretation of the function implementation.
+
+_Benefits:_ mocking allows us to instantiate a fake object and watch the interactions between the objects to determine if a unit test has passed or failed. It is a more reliable way of testing as it allows us to isolate the tests from external dependencies. This reduces the scope of the unit tests which creates more focused tests.
+
+_Disadvantages:_ Since the use of mocking involves knowing how the method under test is implemented, it can lead to more tests failing due to misinterpretation of the function implementation.
 
 
 # 4 How the team work/effort was divided and managed
