@@ -296,8 +296,8 @@ __getCumulativePercentage(KeyedValues): KeyedValues__
     * Output: an exception should be thrown
     * Checks an invalid entry of KeyedValues data parameter
 * test_getCumulativePercentage_validData()
-    * Input: KeyedValues object, index=0;value=1, index=1;value=1
-    * Output: KeyedValues object, index=0;value=0.5, index=1;value=1.0
+    * Input: KeyedValues object, @index 0:key=0;value=1, @index 1:key=1;value=1
+    * Output: KeyedValues object, @index 0:key=0;value=0.5, @index 1:key=1;value=1.0
     * Checks a valid entry of KeyedValues data parameter
 
 *3.2 Test Cases for org.jfree.data.Range*
