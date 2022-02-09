@@ -18,10 +18,11 @@ Along with the fundamental automation testing knowledge the lab provided, it als
 
 # 2 Detailed description of unit test strategy
 
-2.1 Testing Plan
+*2.1 Testing Plan*
+
 Our general testing plan to design and develop our test cases for all 10 methods is first we will partition the input variables using the requirements specified in the documentation, splitting them into valid and invalid inputs using the domain for each input. This will help us determine our equivalent classes where we can create test cases using one sample from each class and one sample at every boundary between the classes following ECT and BVT principles.
 
-2.2 Test-Case Design Strategy
+*2.2 Test-Case Design Strategy*
 
 Below are the input partitions designed for the methods in the _DataUtilities_ class:
 
@@ -61,7 +62,8 @@ __calculateRowTotal(Values2D, int row): double__
 * Boundary
    * int row = 0
    * int row = column size - 1
-calculateRowTotal(Values2D data, int row, int[] validCols): double
+
+__calculateRowTotal(Values2D data, int row, int[] validCols): double__
 Invalid data
 Values2D data is null
 Row index less than 0
@@ -100,7 +102,7 @@ Values in the KeyedValues data are between 0.0 and 1.0
 Boundary analysis (part of equivalent class input data)
 KeyedValues containing values such as 0.0 and 1.0
 
-Below are the input partitions designed for the methods in the Range class:
+Below are the input partitions designed for the methods in the _Range_ class:
 
 scale(Range, double): Range
 One dimensional equivalent classes
@@ -158,7 +160,7 @@ Both bounds out of range object
 
 # 3 Test cases developed
 
-3.1 Test Cases for org.jfree.data.DataUtilities
+*3.1 Test Cases for org.jfree.data.DataUtilities*
 Values2D data is the following 3x3 array for all the below methods unless otherwise specified
 data =  
 1.5
@@ -292,7 +294,8 @@ test_getCumulativePercentage_validData()
 Input:
 Output:
 Checks a valid entry of KeyedValues data parameter
-3.2 Test Cases for org.jfree.data.Range
+
+*3.2 Test Cases for org.jfree.data.Range*
 
 intersects(double b0, double b1): boolean
 test_intersects_invalidData_b0()
@@ -422,7 +425,8 @@ test_contains_valueAtUpper()
 Input: value = 10
 Output: true
 Checks behavior of function when a value at the boundary of the upper bound is provided, boundary value test
-3.3 Benefits and Drawbacks about using Mocking
+
+*3.3 Benefits and Drawbacks about using Mocking*
 Benefits: mocking allows us to instantiate a fake object and watch the interactions between the objects to determine if a unit test has passed or failed. It is a more reliable way of testing as it allows us to isolate the tests from external dependencies. This reduces the scope of the unit tests which creates more focused tests.
 Disadvantages: Since the use of mocking involves knowing how the method under test is implemented, it can lead to more tests failing due to misinterpretation of the function implementation.
 
