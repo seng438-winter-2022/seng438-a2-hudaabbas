@@ -78,6 +78,7 @@ int row = row size - 1
 Int[] validColumn = {0,..}
 Int[] validColumn = {column size - 1,..}
 
+
 __createNumberArray(double[]): Number[]__
 Array of double -> array of Number objects (returns array of Number)
 * Invalid data (null, missing, empty…)
@@ -86,6 +87,7 @@ Array of double -> array of Number objects (returns array of Number)
    * For the double[] data, can be anything from -inf to +inf
 * Boundary analysis (part of equivalent class input data)
    * None
+
 __createNumberArray2D(double[][]): Number[][]__
 Array of array of type doubles -> array of arrays of Number objects (returns 2-D array of Number)
 * Invalid data (null, missing, empty…)
@@ -94,6 +96,7 @@ Array of array of type doubles -> array of arrays of Number objects (returns 2-D
   * For the double[][] data, can be anything from -inf to inf
 * Boundary analysis (part of equivalent class input data)
   * None
+
 __getCumulativePercentage(KeyedValues): KeyedValues__
 * Invalid data (null, missing, empty…)
   * KeyedValues data is null
