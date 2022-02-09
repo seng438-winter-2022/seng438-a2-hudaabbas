@@ -297,7 +297,7 @@ public class DataUtilitiesTest {
 	     Number[] result = DataUtilities.createNumberArray(data);
 	     // verify
 	     Number[] expected = {4.14, 9.14, 10.0};
-	     assertSame("creation of Number[] array from double[] results in: ", expected, result);
+	     assertArrayEquals("creation of Number[] array from double[] results in: ", expected, result);
 	}
 
     // ===============================================================
@@ -325,7 +325,7 @@ public class DataUtilitiesTest {
 		Number[][] result = DataUtilities.createNumberArray2D(data);
 		// verify
 		Number[][] expected = {{4.14}, {9.14}, {10.0}};
-		assertSame("Creation of Number[][] array from double[][] results in: ", expected, result);
+		assertArrayEquals("Creation of Number[][] array from double[][] results in: ", expected, result);
 	}
 	
 	// =====================================================================
