@@ -2,8 +2,8 @@
 
 **Lab. Report \#2 – Requirements-Based Test Generation**
 
-| Group \#:      |     |
-| -------------- | --- |
+| Group \1:      |                  |
+| -------------- | ---------------- |
 | Student Names: |  Nuha Shaikh     |
 |                |  Huda Abbas      |
 |                |  Lubaba Sheikh   |
@@ -64,20 +64,20 @@ __calculateRowTotal(Values2D, int row): double__
    * int row = column size - 1
 
 __calculateRowTotal(Values2D data, int row, int[] validCols): double__
-Invalid data
-Values2D data is null
-Row index less than 0
-Rowindex larger than data size
-Negative or larger than column size number in column array
-Equivalent class
-For int row variable (-inf, 0) (0, data row count - 1) (data row count - 1, inf)
-For int[] validColumn each integer in the array has 3 distinct classes (-inf, 0) (0, data column count - 1) (data column count - 1, inf)
-Boundary
-int row = 0
-int row = row size - 1
-Int[] validColumn = {0,..}
-Int[] validColumn = {column size - 1,..}
-createNumberArray(double[]): Number[]
+* Invalid data
+   * Values2D data is null
+   * Row index less than 0
+   * Rowindex larger than data size
+   * Negative or larger than column size number in column array
+* Equivalent class
+   * For int row variable (-inf, 0) (0, data row count - 1) (data row count - 1, inf)
+   * For int[] validColumn each integer in the array has 3 distinct classes (-inf, 0) (0, data column count - 1) (data column count - 1, inf)
+* Boundary
+   * int row = 0
+   * int row = row size - 1
+   * I=int[] validColumn = {0,..}
+   * int[] validColumn = {column size - 1,..}
+__createNumberArray(double[]): Number[]__
 Array of double -> array of Number objects (returns array of Number)
 Invalid data (null, missing, empty…)
 double[] data is null
@@ -132,30 +132,30 @@ Inputs: lower is lower bound, upper is upper bound
 (-inf, lower) (lower, upper) (upper, +inf)
 Boundary
 Select the boundary values upper and lower bounds: lower and upper
-intersects(double b0, double b1): boolean
-b0 - the lower bound (should be <= b1).
-b1 - the upper bound (should be >= b0).
-One dimensional partitioning
-Input variables b0:
-Valid Data: (-inf, b1]
-Invalid Data: (b1, +inf)
-Input variables b1:
-Valid Data: [b0, +inf)
-Invalid Input: (-inf, b0)
-intersects(Range): boolean
-Invalid data
-Range = null
-Can test \_ different partitions
-Boundary intersections
-Upper bound of input Range argument is equivalent to upper bound of Range class object
-Lower bound of input Range argument is equivalent to lower bound of Range class object
-Both upper and lower bounds of Range argument are equivalent to upper & lower bounds of Range object
-Partitions
-One dimensional equivalent classes
-Inputs: lower is lower bound, upper is upper bound
-(-inf, lower) (lower, upper) (upper, +inf)
-Both bound within the Range object
-Both bounds out of range object
+* __intersects(double b0, double b1): boolean__
+   * b0 - the lower bound (should be <= b1).
+   * b1 - the upper bound (should be >= b0).
+   * One dimensional partitioning
+      * Input variables b0:
+         * Valid Data: (-inf, b1]
+         * Invalid Data: (b1, +inf)
+      * Input variables b1:
+         * Valid Data: [b0, +inf)
+         * Invalid Input: (-inf, b0)
+* __intersects(Range): boolean__
+   * Invalid data
+      * Range = null
+   * Can test \_ different partitions
+      * Boundary intersections
+         * Upper bound of input Range argument is equivalent to upper bound of Range class object
+         * Lower bound of input Range argument is equivalent to lower bound of Range class object
+         * Both upper and lower bounds of Range argument are equivalent to upper & lower bounds of Range object
+   * Partitions
+      * One dimensional equivalent classes
+      * Inputs: lower is lower bound, upper is upper bound
+      * (-inf, lower) (lower, upper) (upper, +inf)
+         * Both bound within the Range object
+         * Both bounds out of range object
 
 
 # 3 Test cases developed
@@ -244,27 +244,27 @@ test_calculatedRowTotal_rowAtSize()
 Input: int row = 2
 Output: 3 + 6 + 1.5 = 10.5
 Valid input for second variable but at boundary of valid and invalid, index right at the maximum size of the data
-calculateRowTotal(Values2D data, int row, int[] validColumn): double
-test_calculatedRowTotal_negativeIntForValidColumn()
-Input: int[] validColumn = [-1] int row = 1
-Output: 0.0
-Invalid class for second input variable, negative column number
-test_calculatedRowTotal_OutOfBoundsColumn()
-Input: int[] validColumn = [3] int row = 1
-Output: 0.0
-Invalid class for second input variable where column index in valid columns is larger than data size
-test_calculatedRowTotal_ColumnZero()
-Input: int[] validColumn = [0] int row = 1
-Output: 5.0
-Valid input for second variable but at boundary of valid and invalid
-test_calculatedRowTotal_allValidColumns()
-Input: int[] validColumns = [1, 2] int row = 1
-Output: 9.0
-Valid input for second variable, one sample within equivalence class not at boundary
-test_calculatedRowTotal_ColumnAtSize()
-Input: int[] validColumn = [2] int row = 1
-Output: 2.0
-Valid input for third variable but at boundary of valid and invalid, index right at the maximum size of the data
+* calculateRowTotal(Values2D data, int row, int[] validColumn): double
+   * test_calculatedRowTotal_negativeIntForValidColumn()
+      * Input: int[] validColumn = [-1] int row = 1
+      * Output: 0.0
+      * Invalid class for second input variable, negative column number
+   * test_calculatedRowTotal_OutOfBoundsColumn()
+      * Input: int[] validColumn = [3] int row = 1
+      * Output: 0.0
+      * Invalid class for second input variable where column index in valid columns is larger than data size
+   * test_calculatedRowTotal_ColumnZero()
+      * Input: int[] validColumn = [0] int row = 1
+      * Output: 5.0
+      * Valid input for second variable but at boundary of valid and invalid
+   * test_calculatedRowTotal_allValidColumns()
+      * Input: int[] validColumns = [1, 2] int row = 1
+      * Output: 9.0
+      * Valid input for second variable, one sample within equivalence class not at boundary
+   * test_calculatedRowTotal_ColumnAtSize()
+      * Input: int[] validColumn = [2] int row = 1
+      * Output: 2.0
+      * Valid input for third variable but at boundary of valid and invalid, index right at the maximum size of the data
 createNumberArray(double[]): Number[]
 test_createNumberArray_invalidData()
 Input: null
@@ -297,68 +297,68 @@ Checks a valid entry of KeyedValues data parameter
 
 *3.2 Test Cases for org.jfree.data.Range*
 
-intersects(double b0, double b1): boolean
-test_intersects_invalidData_b0()
-Range input @setup: -10, 10
-Function call Input: 11, 10
-Output: false
-checks: the behavior of the function when an illegal range is provided, when the lower bound is greater than the upper bound
-test_intersects_invalidData_b1()
-Range input @setup: -10, 10
-Function call Input: 11, 8
-Output: false
-Checks: the behavior of the function when an illegal range is provided, when upper bound is less than the lower bound
-test_intersects_edge_b0()
-Range input @setup: -10, 10
-Function call Input: -10, 12
-Output: true
-Checks: the behavior of the function at the edges of the Range variable
-test_intersects_edge_b1()
-Range input @setup: -11, 11
-Function call Input: -10, 11
-Output:
-Checks: the behavior of the function at the edges of the Range variable
-test_intersects_bothIntersects()
-Range input @setup: -11, 11
-Function call Input: -11, 11
-Output:
-Checks: the behavior of the function at the edges of the Range variable
-test_intersects_validData()
-Range input @setup: -11, 11
-Function call Input: -10, 10
-Output:
-Checks: the behavior of the function at the edges of the Range variable
-intersects(Range): boolean
-test_intersects_invalidData_b0()
-Range input @setup: -10, 10
-Function call Input: Range(11, 10)
-Output:
-checks: the behavior of the function when an illegal range is provided, when the lower bound is greater than the upper bound
-test_intersects_invalidData_b1()
-Range input @setup: -10, 10
-Function call Input: Range(11, 8)
-Output:
-Checks: the behavior of the function when an illegal range is provided, when upper bound is less than the lower bound
-test_intersects_edge_b0()
-Range input @setup: -10, 10
-Function call Input: Range(-10, 12)
-Output:
-Checks: the behavior of the function at the edges of the Range variable
-test_intersects_edge_b1()
-Range input @setup: -11, 11
-Function call Input: Range(10, 11)
-Output:
-Checks: the behavior of the function at the edges of the Range variable
-test_intersects_bothIntersects()
-Range input @setup: -11, 11
-Function call Input: Range(-11, 11)
-Output:
-Checks: the behavior of the function at the edges of the Range variable
-test_intersects_validData()
-Range input @setup: -11, 11
-Function call Input: Range(-10, 10)
-Output:
-Checks: the behavior of the function at the edges of the Range variable
+* intersects(double b0, double b1): boolean
+   * test_intersects_invalidData_b0()
+      * Range input @setup: -10, 10
+      * Function call Input: 11, 10
+      * Output: false
+      * checks: the behavior of the function when an illegal range is provided, when the lower bound is greater than the upper bound
+   * test_intersects_invalidData_b1()
+      * Range input @setup: -10, 10
+      * Function call Input: 11, 8
+      * Output: false
+      * Checks: the behavior of the function when an illegal range is provided, when upper bound is less than the lower bound
+   * test_intersects_edge_b0()
+      * Range input @setup: -10, 10
+      * Function call Input: -10, 12
+      * Output: true
+      * Checks: the behavior of the function at the edges of the Range variable
+   * test_intersects_edge_b1()
+      * Range input @setup: -11, 11
+      * Function call Input: -10, 11
+      * Output: true
+      * Checks: the behavior of the function at the edges of the Range variable
+   * test_intersects_bothIntersects()
+      * Range input @setup: -11, 11
+      * Function call Input: -11, 11
+      * Output: true
+      * Checks: the behavior of the function at the edges of the Range variable
+   * test_intersects_validData()
+      * Range input @setup: -11, 11
+      * Function call Input: -10, 10
+      * Output: true
+      * Checks: the behavior of the function at the edges of the Range variable
+* intersects(Range): boolean
+   * test_intersects_invalidData_b0()
+      * Range input @setup: -10, 10
+      * Function call Input: Range(11, 10)
+      * Output: true
+      * checks: the behavior of the function when an illegal range is provided, when the lower bound is greater than the upper bound
+   * test_intersects_invalidData_b1()
+      * Range input @setup: -10, 10
+      * Function call Input: Range(11, 8)
+      * Output: true
+      * Checks: the behavior of the function when an illegal range is provided, when upper bound is less than the lower bound
+   * test_intersects_edge_b0()
+      * Range input @setup: -10, 10
+      * Function call Input: Range(-10, 12)
+      * Output: true
+      * Checks: the behavior of the function at the edges of the Range variable
+   * test_intersects_edge_b1()
+      * Range input @setup: -11, 11
+      * Function call Input: Range(10, 11)
+      * Output: true
+      * Checks: the behavior of the function at the edges of the Range variable
+   * test_intersects_bothIntersects()
+      * Range input @setup: -11, 11
+      * Function call Input: Range(-11, 11)
+      * Output: true
+      * Checks: the behavior of the function at the edges of the Range variable
+   * test_intersects_validData()
+      * Range input @setup: -11, 11
+      * Function call Input: Range(-10, 10)
+      * Output: true
+      * Checks: the behavior of the function at the edges of the Range variable
 
 The methods below used the following valid Range:
 Lower bound: 4
