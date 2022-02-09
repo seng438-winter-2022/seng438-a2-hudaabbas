@@ -102,36 +102,38 @@ Values in the KeyedValues data are between 0.0 and 1.0
 Boundary analysis (part of equivalent class input data)
 KeyedValues containing values such as 0.0 and 1.0
 
-Below are the input partitions designed for the methods in the _Range_ class:
+__Below are the input partitions designed for the methods in the _Range_ class:__
 
-scale(Range, double): Range
-One dimensional equivalent classes
-Invalid Data
-Base is null
-Factor is a negative number
-Valid Data
-Range is not null
-Factor is a positive number
-Boundary
-Factor is 0
-constrain(double): double
-Invalid Data
-All values are valid for value
-Can test 3 different partitions
-One dimensional equivalent classes
-Inputs: lower is lower bound, upper is upper bound
-(-inf, lower) (lower, upper) (upper, +inf)
-Boundary
-Select the boundary values upper and lower bounds: lower and upper
-contains(double): double
-Invalid Data
-All values are valid for value
-Can test 3 different partitions
-One dimensional equivalent classes
-Inputs: lower is lower bound, upper is upper bound
-(-inf, lower) (lower, upper) (upper, +inf)
-Boundary
-Select the boundary values upper and lower bounds: lower and upper
+__scale(Range, double): Range__
+* One dimensional equivalent classes
+* Invalid Data
+   * Base is null
+   * Factor is a negative number
+* Valid Data
+   * Range is not null
+   * Factor is a positive number
+* Boundary
+   * Factor is 0
+
+__constrain(double): double__
+* Invalid Data
+   * All values are valid for value
+* Can test 3 different partitions
+   * One dimensional equivalent classes
+   * Inputs: lower is lower bound, upper is upper bound
+   * (-inf, lower) (lower, upper) (upper, +inf)
+* Boundary
+   * Select the boundary values upper and lower bounds: lower and upper
+
+__contains(double): double__
+* Invalid Data
+   * All values are valid for value
+* Can test 3 different partitions
+   * One dimensional equivalent classes
+   * Inputs: lower is lower bound, upper is upper bound
+   * (-inf, lower) (lower, upper) (upper, +inf)
+* Boundary
+   * Select the boundary values upper and lower bounds: lower and upper
 intersects(double b0, double b1): boolean
 b0 - the lower bound (should be <= b1).
 b1 - the upper bound (should be >= b0).
@@ -360,71 +362,78 @@ Function call Input: Range(-10, 10)
 Output:
 Checks: the behavior of the function at the edges of the Range variable
 
-The methods below used the following valid Range:
+__The methods below used the following valid Range:__
+
 Lower bound: 4
+
 Upper bound: 10
-scale(Range, double): Range
-test_scale_invalidData_base()
-Input: Null base Range
-Output: Throws exception
-Checks if an exception is thrown when an invalid Range object is provided, EC invalid input
-test_scale_invalidData_factor()
-Input: factor = -2
-Output: Throws exception
-Checks if an exception is thrown when an invalid Range factor is provided, EC invalid input
-test_scale_invalidData_factorBoundary()
-Input: factor = 0
-Output
-Range: lower = 0, upper = 0
-Checks behavior of function when the boundary value of factor is provided, test’s boundary value
-test_scale_validData()
-Input:
-Valid base range: lower = 4, upper = 10
-factor = 2
-Output: lower = 8, upper = 20
-Checks behavior of function if both input arguments are valid, EC valid inputs
-constrain(double): double
-test_constrain_valueBelowLower()
-Input: value = -2
-Output: 4
-Checks behavior of function when a value below the lower bound is provided, EC valid input partition
-test_constrain_valueBetweenRange()
-Input: value = 9
-Output: 9
-Checks behavior of function when a value between the range is provided, EC valid input partition
-test_constrain_valueAboveUpper()
-Input: value = 20
-Output: 10
-Checks behavior of function when a value above the upper bound is provided, EC valid input partition
-test_constrain_valueAtLower()
-Input: value = 4
-Output: 4
-Checks behavior of function when a value at the boundary of the lower bound is provided, boundary value test
-test_constrain_valueAtUpper()
-Input: value = 10
-Output: 10
-Checks behavior of function when a value at the boundary of the upper bound is provided, boundary value test
-contains(double): double
-test_contains_valueBelowLower()
-Input: value = 1
-Output: false
-Checks behavior of function when a value below the lower bound is provided, EC valid input partition
-test_contains_valueBetweenRange()
-Input: value = 5
-Output: true
-Checks behavior of function when a value between the range is provided, EC valid input partition
-test_contains_valueAboveUpper()
-Input: value = 15
-Output: false
-Checks behavior of function when a value above the upper bound is provided, EC valid input partition
-test_contains_valueAtLower()
-Input: value = 4
-Output: true
-Checks behavior of function when a value at the boundary of the lower bound is provided, boundary value test
-test_contains_valueAtUpper()
-Input: value = 10
-Output: true
-Checks behavior of function when a value at the boundary of the upper bound is provided, boundary value test
+
+__scale(Range, double): Range__
+* test_scale_invalidData_base()
+   * Input: Null base Range
+   * Output: Throws exception
+   * Checks if an exception is thrown when an invalid Range object is provided, EC invalid input
+
+* test_scale_invalidData_factor()
+   * Input: factor = -2
+   * Output: Throws exception
+   * Checks if an exception is thrown when an invalid Range factor is provided, EC invalid input
+
+* test_scale_invalidData_factorBoundary()
+   * Input: factor = 0
+   * Output
+      * Range: lower = 0, upper = 0
+   * Checks behavior of function when the boundary value of factor is provided, test’s boundary value
+
+* test_scale_validData()
+   * Input:
+      * Valid base range: lower = 4, upper = 10
+      * factor = 2
+   * Output: lower = 8, upper = 20
+   * Checks behavior of function if both input arguments are valid, EC valid inputs
+
+__constrain(double): double__
+* test_constrain_valueBelowLower()
+   * Input: value = -2
+   * Output: 4
+   * Checks behavior of function when a value below the lower bound is provided, EC valid input partition
+* test_constrain_valueBetweenRange()
+   * Input: value = 9
+   * Output: 9
+   * Checks behavior of function when a value between the range is provided, EC valid input partition
+* test_constrain_valueAboveUpper()
+   * Input: value = 20
+   * Output: 10
+   * Checks behavior of function when a value above the upper bound is provided, EC valid input partition
+* test_constrain_valueAtLower()
+   * Input: value = 4
+   * Output: 4
+   * Checks behavior of function when a value at the boundary of the lower bound is provided, boundary value test
+* test_constrain_valueAtUpper()
+   * Input: value = 10
+   * Output: 10
+   * Checks behavior of function when a value at the boundary of the upper bound is provided, boundary value test
+__contains(double): double__
+* test_contains_valueBelowLower()
+   * Input: value = 1
+   * Output: false
+   * Checks behavior of function when a value below the lower bound is provided, EC valid input partition
+* test_contains_valueBetweenRange()
+   * Input: value = 5
+   * Output: true
+   * Checks behavior of function when a value between the range is provided, EC valid input partition
+* test_contains_valueAboveUpper()
+   * Input: value = 15
+   * Output: false
+   * Checks behavior of function when a value above the upper bound is provided, EC valid input partition
+* test_contains_valueAtLower()
+   * Input: value = 4
+   * Output: true
+   * Checks behavior of function when a value at the boundary of the lower bound is provided, boundary value test
+* test_contains_valueAtUpper()
+   * Input: value = 10
+   * Output: true
+   * Checks behavior of function when a value at the boundary of the upper bound is provided, boundary value test
 
 *3.3 Benefits and Drawbacks about using Mocking*
 Benefits: mocking allows us to instantiate a fake object and watch the interactions between the objects to determine if a unit test has passed or failed. It is a more reliable way of testing as it allows us to isolate the tests from external dependencies. This reduces the scope of the unit tests which creates more focused tests.
