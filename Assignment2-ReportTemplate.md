@@ -78,7 +78,7 @@ __calculateRowTotal(Values2D data, int row, int[] validCols): double__
    * I=int[] validColumn = {0,..}
    * int[] validColumn = {column size - 1,..}
 
-__createNumberArray(double[]): Number[]__
+__createNumberArray(double[]): Number[]__\
 Array of double -> array of Number objects (returns array of Number)
 * Invalid data (null, missing, empty…)
    * double[] data is null
@@ -87,7 +87,7 @@ Array of double -> array of Number objects (returns array of Number)
 * Boundary analysis (part of equivalent class input data)
    * None
 
-__createNumberArray2D(double[][]): Number[][]__
+__createNumberArray2D(double[][]): Number[][]__\
 Array of array of type doubles -> array of arrays of Number objects (returns 2-D array of Number)
 * Invalid data (null, missing, empty…)
   * Double[][] data is null
@@ -366,8 +366,8 @@ __intersects(Range): boolean__
       * Output: true
       * Checks: the behavior of the function at the edges of the Range variable
 
-_The methods below used the following valid Range:_
-Lower bound: 4
+_The methods below used the following valid Range:_\
+Lower bound: 4\
 Upper bound: 10
 
 __scale(Range, double): Range__
