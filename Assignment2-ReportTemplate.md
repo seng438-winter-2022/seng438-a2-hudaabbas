@@ -2,7 +2,7 @@
 
 **Lab. Report \#2 – Requirements-Based Test Generation**
 
-| Group \1:      |                  |
+| Group \#:      |       1          |
 | -------------- | ---------------- |
 | Student Names: |  Nuha Shaikh     |
 |                |  Huda Abbas      |
@@ -64,7 +64,6 @@ __calculateRowTotal(Values2D, int row): double__
    * int row = column size - 1
 
 __calculateRowTotal(Values2D data, int row, int[] validCols): double__
-
 * Invalid data
    * Values2D data is null
    * Row index less than 0
@@ -90,7 +89,6 @@ Array of double -> array of Number objects (returns array of Number)
 
 __createNumberArray2D(double[][]): Number[][]__
 Array of array of type doubles -> array of arrays of Number objects (returns 2-D array of Number)
-
 * Invalid data (null, missing, empty…)
   * Double[][] data is null
 * Valid input data (part of equivalent class input data)
@@ -107,7 +105,7 @@ __getCumulativePercentage(KeyedValues): KeyedValues__
 * Boundary analysis (part of equivalent class input data)
   * KeyedValues containing values such as 0.0 and 1.0
 
-__Below are the input partitions designed for the methods in the _Range_ class:__
+Below are the input partitions designed for the methods in the _Range_ class:
 
 __scale(Range, double): Range__
 * One dimensional equivalent classes
@@ -139,7 +137,8 @@ __contains(double): double__
    * (-inf, lower) (lower, upper) (upper, +inf)
 * Boundary
    * Select the boundary values upper and lower bounds: lower and upper
-* __intersects(double b0, double b1): boolean__
+
+__intersects(double b0, double b1): boolean__
    * b0 - the lower bound (should be <= b1).
    * b1 - the upper bound (should be >= b0).
    * One dimensional partitioning
@@ -149,10 +148,11 @@ __contains(double): double__
       * Input variables b1:
          * Valid Data: [b0, +inf)
          * Invalid Input: (-inf, b0)
-* __intersects(Range): boolean__
+ 
+ __intersects(Range): boolean__
    * Invalid data
       * Range = null
-   * Can test \_ different partitions
+   * Can test 3 different partitions
       * Boundary intersections
          * Upper bound of input Range argument is equivalent to upper bound of Range class object
          * Lower bound of input Range argument is equivalent to lower bound of Range class object
@@ -248,8 +248,7 @@ __calculateRowTotal(Values2D data, int row): double__
    * Output: 3 + 6 + 1.5 = 10.5
    * Valid input for second variable but at boundary of valid and invalid, index right at the maximum size of the data
    
-Valid input for second variable but at boundary of valid and invalid, index right at the maximum size of the data
-* calculateRowTotal(Values2D data, int row, int[] validColumn): double
+__calculateRowTotal(Values2D data, int row, int[] validColumn): double__
    * test_calculatedRowTotal_negativeIntForValidColumn()
       * Input: int[] validColumn = [-1] int row = 1
       * Output: 0.0
@@ -303,7 +302,7 @@ __getCumulativePercentage(KeyedValues): KeyedValues__
 
 *3.2 Test Cases for org.jfree.data.Range*
 
-* intersects(double b0, double b1): boolean
+__intersects(double b0, double b1): boolean__
    * test_intersects_invalidData_b0()
       * Range input @setup: -10, 10
       * Function call Input: 11, 10
@@ -334,7 +333,8 @@ __getCumulativePercentage(KeyedValues): KeyedValues__
       * Function call Input: -10, 10
       * Output: true
       * Checks: the behavior of the function at the edges of the Range variable
-* intersects(Range): boolean
+
+__intersects(Range): boolean__
    * test_intersects_invalidData_b0()
       * Range input @setup: -10, 10
       * Function call Input: Range(11, 10)
@@ -366,10 +366,8 @@ __getCumulativePercentage(KeyedValues): KeyedValues__
       * Output: true
       * Checks: the behavior of the function at the edges of the Range variable
 
-__The methods below used the following valid Range:__
-
+_The methods below used the following valid Range:_
 Lower bound: 4
-
 Upper bound: 10
 
 __scale(Range, double): Range__
@@ -377,18 +375,15 @@ __scale(Range, double): Range__
    * Input: Null base Range
    * Output: Throws exception
    * Checks if an exception is thrown when an invalid Range object is provided, EC invalid input
-
 * test_scale_invalidData_factor()
    * Input: factor = -2
    * Output: Throws exception
    * Checks if an exception is thrown when an invalid Range factor is provided, EC invalid input
-
 * test_scale_invalidData_factorBoundary()
    * Input: factor = 0
    * Output
       * Range: lower = 0, upper = 0
    * Checks behavior of function when the boundary value of factor is provided, test’s boundary value
-
 * test_scale_validData()
    * Input:
       * Valid base range: lower = 4, upper = 10
@@ -417,6 +412,7 @@ __constrain(double): double__
    * Input: value = 10
    * Output: 10
    * Checks behavior of function when a value at the boundary of the upper bound is provided, boundary value test
+
 __contains(double): double__
 * test_contains_valueBelowLower()
    * Input: value = 1
