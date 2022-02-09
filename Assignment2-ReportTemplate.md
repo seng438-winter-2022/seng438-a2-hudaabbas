@@ -23,7 +23,7 @@ Our general testing plan to design and develop our test cases for all 10 methods
 
 2.2 Test-Case Design Strategy
 
-Below are the input partitions designed for the methods in the DataUtilities class:
+Below are the input partitions designed for the methods in the _DataUtilities_ class:
 
 __calculateColumnTotal(Values2D data, int column):double__
  * Invalid data
@@ -35,6 +35,7 @@ __calculateColumnTotal(Values2D data, int column):double__
  * Boundary
     * int column = 0
     * int column = column size - 1
+
 __calculateColumnTotal(Values2D data, int column, int[] validRows):double__
 * Invalid data
    * Values2D data is null
@@ -49,6 +50,7 @@ __calculateColumnTotal(Values2D data, int column, int[] validRows):double__
    * int column = column size - 1
    * int[] validRows = {0,..}
    * int[] validRows = {row size - 1,..}
+
 __calculateRowTotal(Values2D, int row): double__
 * Invalid data
    * Values2D data is null
