@@ -388,7 +388,7 @@ public class DataUtilitiesTest {
 	     // exercise	
 	     KeyedValues result = DataUtilities.getCumulativePercentages(values);
 	     // verify
-	     assertEquals("Cumulation of percentage results in the following. ", result, expected);
+	     assertEquals("Cumulation of percentage results in the following. ", expected, result);
 	}
 	
 }
