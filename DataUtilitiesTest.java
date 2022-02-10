@@ -346,7 +346,7 @@ public class DataUtilitiesTest {
     // it uses jMock to mock the methods and objects used in this method. 
 	@Test
 	public void test_getCumulativePercentage_validData() {
-         // setup
+           // setup
 	     Mockery mockingContext = new Mockery();
 	     final KeyedValues values = mockingContext.mock(KeyedValues.class);
 	     mockingContext.checking(new Expectations() {
@@ -365,28 +365,14 @@ public class DataUtilitiesTest {
 	             will(returnValue(1)); // key returned
 	         }
 	     });
-	     
-	     Mockery mockingContextOne = new Mockery();
-	     final KeyedValues expected = mockingContextOne.mock(KeyedValues.class);
-	     mockingContextOne.checking(new Expectations() {
-	         {
-	             atLeast(2).of(expected).getItemCount();
-	             will(returnValue(2));
-	             
-	             atLeast(2).of(expected).getValue(0);
-	             will(returnValue(0.5));
-	             atLeast(2).of(expected).getValue(1);
-	             will(returnValue(1.0)); 
-	             
-	             atLeast(2).of(expected).getKey(0);
-	             will(returnValue(0));
-	             atLeast(2).of(expected).getKey(1);
-	             will(returnValue(1));
-	         }
-	     });
-	     
-	     // exercise	
 	     KeyedValues result = DataUtilities.getCumulativePercentages(values);
+	     
+	     final DefaultKeyedValues expected = new DefaultKeyedValues();
+	     Integer key0 = 0;
+	     Integer key1 = 1;
+	     expected.addValue(key0, 0.5);
+	     expected.addValue(key1, 1);
+	  
 	     // verify
 	     assertEquals("Cumulation of percentage results in the following. ", expected, result);
 	}
