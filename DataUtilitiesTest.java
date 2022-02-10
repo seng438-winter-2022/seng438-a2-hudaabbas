@@ -237,13 +237,13 @@ public class DataUtilitiesTest {
         assertEquals("Testing for invalid class for second input variable, negative column number", 0.0, result, .000000001d);
     }
     
-    //Valid input for second variable but at boundary of valid and invalid
+    //Invalid class for third input variable where column index in valid columns is larger than data size
     @Test
     public void test_calculatedRowTotal_OutOfBoundsColumn()
     { 
         int[] col= {3};
         double result = DataUtilities.calculateRowTotal(values, 1, col);
-        assertEquals("Testing for valid input for second variable but at boundary of valid and invalid", 0.0, result, .000000001d);
+        assertEquals("Testing for invalid class for third input variable where column index in valid columns is 3", 0.0, result, .000000001d);
     }
     
     //Valid input for second variable, one sample within equivalence class not at boundary
