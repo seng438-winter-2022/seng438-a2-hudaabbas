@@ -6,6 +6,7 @@ import org.jfree.data.Values2D;
 import org.jmock.*;
 import org.junit.*;
 import org.jfree.data.KeyedValues;
+import org.jfree.data.DefaultKeyedValues;
 
 public class DataUtilitiesTest {
 
